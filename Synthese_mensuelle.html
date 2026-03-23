@@ -341,45 +341,60 @@ th { background-color: #e0e0e0; }
 <!-- jsPDF + html2canvas pour PDF multi-pages -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script>
-document.getElementById('downloadPDF').addEventListener('click', async () => {
 
-    // masquer les graphiques interactifs
-    document.querySelectorAll('iframe').forEach(f => f.style.display = 'none');
+document.getElementById("downloadPDF").addEventListener("click", async function(){
 
-    // afficher images PNG
-    document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'block');
+// afficher les images PNG pour le PDF
+document.querySelectorAll(".pdf-only").forEach(function(img){
+img.style.display="block";
+});
 
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF('p','pt','a4');
+// masquer uniquement pendant la capture
+document.querySelectorAll("iframe").forEach(function(frame){
+frame.style.visibility="hidden";
+});
 
-    const sections = document.querySelectorAll('.pdf-section');
+const { jsPDF } = window.jspdf;
 
-    for (let i = 0; i < sections.length; i++) {
+const pdf = new jsPDF("p","pt","a4");
 
-        const canvas = await html2canvas(sections[i], {
-            scale:2,
-            useCORS:true
-        });
+const sections = document.querySelectorAll(".pdf-section");
 
-        const imgData = canvas.toDataURL('image/png');
+for(let i=0;i<sections.length;i++){
 
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const imgHeight = canvas.height * pdfWidth / canvas.width;
+const canvas = await html2canvas(sections[i],{
+scale:2,
+useCORS:true
+});
 
-        if(i>0) pdf.addPage();
+const imgData = canvas.toDataURL("image/png");
 
-        pdf.addImage(imgData,'PNG',0,0,pdfWidth,imgHeight);
-    }
+const pdfWidth = pdf.internal.pageSize.getWidth();
+const imgHeight = canvas.height * pdfWidth / canvas.width;
 
-    pdf.save("Synthese_Arguenon.pdf");
+if(i>0){
+pdf.addPage();
+}
 
-    // restaurer page web
-    document.querySelectorAll('iframe').forEach(f => f.style.display = 'block');
-    document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'none');
+pdf.addImage(imgData,"PNG",0,0,pdfWidth,imgHeight);
+
+}
+
+pdf.save("Synthese_Arguenon.pdf");
+
+// remettre l'affichage normal
+document.querySelectorAll(".pdf-only").forEach(function(img){
+img.style.display="none";
+});
+
+document.querySelectorAll("iframe").forEach(function(frame){
+frame.style.visibility="visible";
+});
 
 });
-</script>
 
+</script>
 </body>
 </html>
