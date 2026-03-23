@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Synthèse mensuelle qualité des eaux - BV Arguenon</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f5f5f5;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+.section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.figure {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.figure img {
+    max-width: 90%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.figure a {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.table-container {
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #e0e0e0;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo BV Arguenon">
+    <h1>Synthèse mensuelle qualité des eaux - BV Arguenon</h1>
+    <p id="date">Date : 23 mars 2026</p>
+</header>
+
+<div class="section">
+    <h2>Graphiques</h2>
+
+    <div class="figure">
+        <h3>Station ROSETTE</h3>
+        <img src="graphique_04166800_ROSETTE.png" alt="Graphique ROSETTE">
+        <a href="graphique_04166800_ROSETTE.html" target="_blank">Voir le graphique interactif</a>
+    </div>
+
+    <div class="figure">
+        <h3>Station ROSAIE</h3>
+        <img src="graphique_04166875_ROSAIE.png" alt="Graphique ROSAIE">
+        <a href="graphique_04166875_ROSAIE.html" target="_blank">Voir le graphique interactif</a>
+    </div>
+
+</div>
+
+<div class="section">
+    <h2>Tableaux</h2>
+
+    <div class="table-container">
+        <h3>Tableau des paramètres de la station ROSETTE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Paramètre 1</th>
+                    <th>Paramètre 2</th>
+                    <th>Paramètre 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/03/2026</td>
+                    <td>5</td>
+                    <td>2.3</td>
+                    <td>7.1</td>
+                </tr>
+                <tr>
+                    <td>15/03/2026</td>
+                    <td>4.8</td>
+                    <td>2.5</td>
+                    <td>6.9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
