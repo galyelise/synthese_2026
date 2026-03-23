@@ -93,11 +93,13 @@ table th {
 }
 .flex-section div {
     flex: 1;
+    text-align: center; /* centre les images et titres */
 }
-.flex-section img {
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #ccc;
+.flex-section .left img {
+    max-width: 350px;
+}
+.flex-section .right img {
+    max-width: 450px; /* image de droite plus grande */
 }
 </style>
 </head>
@@ -115,7 +117,7 @@ table th {
 <div class="section flex-section">
 
     <!-- Colonne gauche : carte -->
-    <div>
+    <div class="left">
         <h2>Stations de mesures sur le bassin versant de l'Arguenon</h2>
         <a href="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png" target="_blank">
             <img src="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png" 
@@ -124,7 +126,7 @@ table th {
     </div>
 
     <!-- Colonne droite : tableau -->
-    <div>
+    <div class="right">
         <h2>Les réseaux de suivi de la qualité de l'eau sur le territoire</h2>
         <a href="https://galyelise.github.io/synthese_2026/Reseaux_de_suivi_qualite_Arguenon.png" target="_blank">
             <img src="https://galyelise.github.io/synthese_2026/Reseaux_de_suivi_qualite_Arguenon.png" 
@@ -134,63 +136,12 @@ table th {
 
 </div>
 
-<!-- Section Graphiques -->
-<div class="section">
-    <h2>Graphiques</h2>
-
-    <div class="figure">
-        <h3>Station ROSETTE</h3>
-        <img src="graphique_04166800_ROSETTE.png" alt="Graphique ROSETTE">
-        <a href="graphique_04166800_ROSETTE.html" target="_blank">Voir le graphique interactif</a>
-    </div>
-
-    <div class="figure">
-        <h3>Station ROSAIE</h3>
-        <img src="graphique_04166875_ROSAIE.png" alt="Graphique ROSAIE">
-        <a href="graphique_04166875_ROSAIE.html" target="_blank">Voir le graphique interactif</a>
-    </div>
-
-    <div class="figure">
-        <h3>Station AELB BOIS LEARD</h3>
-        <img src="graphique_04167000_AELB_BOIS_LEARD.png" alt="Graphique AELB BOIS LEARD">
-        <a href="graphique_04167000_AELB_BOIS_LEARD.html" target="_blank">Voir le graphique interactif</a>
-    </div>
-
+<!-- Section Identification en dessous -->
+<div class="section" style="text-align:center;">
+    <h2>Identification et localisation des stations de prélèvements</h2>
+    <a href="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" target="_blank">
+        <img src="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" 
+             alt="Tableau identification stations" style="max-width:600px; width:90%; border:1px solid #ccc;">
+    </a>
 </div>
 
-<!-- Section Tableaux -->
-<div class="section">
-    <h2>Tableaux</h2>
-
-    <div class="table-container">
-        <h3>Tableau des paramètres de la station ROSETTE</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Paramètre 1</th>
-                    <th>Paramètre 2</th>
-                    <th>Paramètre 3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01/03/2026</td>
-                    <td>5</td>
-                    <td>2.3</td>
-                    <td>7.1</td>
-                </tr>
-                <tr>
-                    <td>15/03/2026</td>
-                    <td>4.8</td>
-                    <td>2.5</td>
-                    <td>6.9</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-</div>
-
-</body>
-</html>
