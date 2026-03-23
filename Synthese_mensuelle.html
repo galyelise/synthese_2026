@@ -101,6 +101,18 @@ table th {
 .flex-section .right img {
     max-width: 450px; /* image de droite plus grande */
 }
+
+/* Style bouton PDF */
+#downloadPDF {
+    padding:10px 20px;
+    background:#0073e6;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    margin:20px 0;
+}
 </style>
 </head>
 <body>
@@ -112,6 +124,11 @@ table th {
     <img src="https://galyelise.github.io/synthese_2026/logo%20smap.png" 
          alt="Logo BV Arguenon" class="logo">
 </header>
+
+<!-- Bouton pour télécharger la page en PDF -->
+<div style="text-align:center;">
+    <button id="downloadPDF">Télécharger la synthèse en PDF</button>
+</div>
 
 <!-- Section double colonne : carte et tableau -->
 <div class="section flex-section">
@@ -137,10 +154,11 @@ table th {
 </div>
 
 <!-- Section Identification en dessous -->
-<div class="section" style="text-align:center;">
+<div class="section" style="text-align:center; background-color:white; padding:20px; border-radius:10px;">
     <h2>Identification et localisation des stations de prélèvements</h2>
     <a href="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" target="_blank">
         <img src="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" 
-             alt="Tableau identification stations" style="max-width:600px; width:90%; border:1px solid #ccc;">
+             alt="Tableau identification stations" 
+             style="width:100%; max-width:800px; border:1px solid #ccc;">
     </a>
 </div>
