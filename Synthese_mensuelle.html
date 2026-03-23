@@ -79,6 +79,11 @@ th { background-color: #e0e0e0; }
 .flex-section .left img { max-width: 350px; }
 .flex-section .right img { max-width: 450px; }
 
+.pdf-section{
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
 /* Bouton PDF */
 #downloadPDF {
     padding:10px 20px;
@@ -337,37 +342,42 @@ th { background-color: #e0e0e0; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-document.getElementById('downloadPDF').addEventListener('click', () => {
-    // Cacher iframes et afficher images PDF
+document.getElementById('downloadPDF').addEventListener('click', async () => {
+
+    // masquer les graphiques interactifs
     document.querySelectorAll('iframe').forEach(f => f.style.display = 'none');
+
+    // afficher images PNG
     document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'block');
 
-    html2canvas(document.body, {scale:2, useCORS:true}).then(canvas => {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('p','pt','a4');
+
+    const sections = document.querySelectorAll('.pdf-section');
+
+    for (let i = 0; i < sections.length; i++) {
+
+        const canvas = await html2canvas(sections[i], {
+            scale:2,
+            useCORS:true
+        });
+
         const imgData = canvas.toDataURL('image/png');
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF('p', 'pt', 'a4');
+
         const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-        const ratio = canvas.width / pdfWidth;
-        let heightLeft = canvas.height / ratio;
-        let position = 0;
+        const imgHeight = canvas.height * pdfWidth / canvas.width;
 
-        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, canvas.height / ratio);
-        heightLeft -= pdfHeight;
+        if(i>0) pdf.addPage();
 
-        while (heightLeft > 0) {
-            position = heightLeft - canvas.height / ratio;
-            pdf.addPage();
-            pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, canvas.height / ratio);
-            heightLeft -= pdfHeight;
-        }
+        pdf.addImage(imgData,'PNG',0,0,pdfWidth,imgHeight);
+    }
 
-        pdf.save("Synthese_Arguenon.pdf");
+    pdf.save("Synthese_Arguenon.pdf");
 
-        // Revenir à affichage interactif
-        document.querySelectorAll('iframe').forEach(f => f.style.display = 'block');
-        document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'none');
-    });
+    // restaurer page web
+    document.querySelectorAll('iframe').forEach(f => f.style.display = 'block');
+    document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'none');
+
 });
 </script>
 
