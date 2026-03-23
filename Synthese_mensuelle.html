@@ -11,17 +11,26 @@ body {
 }
 
 header {
+    position: relative;
     text-align: center;
     margin-bottom: 50px;
 }
 
-header img {
-    width: 150px;
+header .logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px; /* Ajuster la taille si besoin */
     height: auto;
 }
 
 h1 {
     margin: 10px 0;
+}
+
+#date {
+    margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 .section {
@@ -79,9 +88,10 @@ table th {
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo BV Arguenon">
     <h1>Synthèse mensuelle qualité des eaux - BV Arguenon</h1>
     <p id="date">Date : 23 mars 2026</p>
+    <img src="https://galyelise.github.io/synthese_2026/logo%20smap.png" 
+         alt="Logo BV Arguenon" class="logo">
 </header>
 
 <div class="section">
@@ -97,6 +107,12 @@ table th {
         <h3>Station ROSAIE</h3>
         <img src="graphique_04166875_ROSAIE.png" alt="Graphique ROSAIE">
         <a href="graphique_04166875_ROSAIE.html" target="_blank">Voir le graphique interactif</a>
+    </div>
+
+    <div class="figure">
+        <h3>Station AELB BOIS LEARD</h3>
+        <img src="graphique_04167000_AELB_BOIS_LEARD.png" alt="Graphique AELB BOIS LEARD">
+        <a href="graphique_04167000_AELB_BOIS_LEARD.html" target="_blank">Voir le graphique interactif</a>
     </div>
 
 </div>
