@@ -90,6 +90,9 @@ th { background-color: #e0e0e0; }
     font-weight:bold;
     margin:20px 0;
 }
+
+/* Masque images PDF */
+.pdf-only { display:none; }
 </style>
 </head>
 <body>
@@ -113,12 +116,14 @@ th { background-color: #e0e0e0; }
         <h2>Stations de mesures sur le bassin versant de l'Arguenon</h2>
         <a href="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png" target="_blank">
             <img src="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png" alt="Carte des stations">
+            <img src="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png" class="pdf-only" alt="Carte statique pour PDF">
         </a>
     </div>
     <div class="right">
         <h2>Les réseaux de suivi de la qualité de l'eau sur le territoire</h2>
         <a href="https://galyelise.github.io/synthese_2026/Reseaux_de_suivi_qualite_Arguenon.png" target="_blank">
             <img src="https://galyelise.github.io/synthese_2026/Reseaux_de_suivi_qualite_Arguenon.png" alt="Tableau réseaux">
+            <img src="https://galyelise.github.io/synthese_2026/Reseaux_de_suivi_qualite_Arguenon.png" class="pdf-only" alt="Tableau statique pour PDF">
         </a>
     </div>
 </div>
@@ -128,6 +133,7 @@ th { background-color: #e0e0e0; }
     <h2>Identification et localisation des stations de prélèvements</h2>
     <a href="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" target="_blank">
         <img src="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" alt="Tableau identification stations">
+        <img src="https://galyelise.github.io/synthese_2026/Id_loc_stations_prelevements.png" class="pdf-only" alt="Tableau statique pour PDF">
     </a>
 </div>
 
@@ -138,6 +144,7 @@ th { background-color: #e0e0e0; }
             <h2>BV Arguenon 2026 – NITRATES - PESTICIDES</h2>
             <a href="https://galyelise.github.io/synthese_2026/Station_Arguenon_a_Val_d_Arguenon_ARS.png" target="_blank">
                 <img src="https://galyelise.github.io/synthese_2026/Station_Arguenon_a_Val_d_Arguenon_ARS.png" style="max-width:1000px; border:1px solid #ccc;">
+                <img src="https://galyelise.github.io/synthese_2026/Station_Arguenon_a_Val_d_Arguenon_ARS.png" class="pdf-only" style="max-width:1000px; border:1px solid #ccc;">
             </a>
         </div>
         <div style="flex:1; text-align:center;">
@@ -149,18 +156,21 @@ th { background-color: #e0e0e0; }
 
     <!-- Graphiques empilés verticalement -->
     <div style="margin-top:30px; text-align:center;">
-        <h2>Nitrates 2026 à la prise d'eau de Pléven : Eau Brute et Eau Traitée</h2>
+        <h2>Nitrates 2026 à Pléven : Eau Brute et Eau Traitée</h2>
         <iframe src="https://galyelise.github.io/synthese_2026/ARS_Nitrates_2026.html" style="width:100%; max-width:1200px; height:700px; border:1px solid #ccc;"></iframe>
+        <img src="https://galyelise.github.io/synthese_2026/ARS_Nitrates_2026.png" class="pdf-only" style="width:100%; max-width:1200px; border:1px solid #ccc;" alt="Graphique Nitrates statique">
     </div>
 
     <div style="margin-top:30px; text-align:center;">
         <h3>Prise d'eau à Pléven - Eau Brute</h3>
         <iframe src="https://galyelise.github.io/synthese_2026/ARS_Pesticides_Eau_Brute_2026.html" style="width:100%; max-width:1200px; height:600px; border:1px solid #ccc;"></iframe>
+        <img src="https://galyelise.github.io/synthese_2026/ARS_Pesticides_Eau_Brute_2026.png" class="pdf-only" style="width:100%; max-width:1200px; border:1px solid #ccc;" alt="Graphique Eau Brute statique">
     </div>
 
     <div style="margin-top:30px; text-align:center;">
         <h3>Prise d'eau à Pléven - Eau Traité</h3>
         <iframe src="https://galyelise.github.io/synthese_2026/ARS_Pesticides_Eau_Traitee_2026.html" style="width:100%; max-width:1200px; height:600px; border:1px solid #ccc;"></iframe>
+        <img src="https://galyelise.github.io/synthese_2026/ARS_Pesticides_Eau_Traitee_2026.png" class="pdf-only" style="width:100%; max-width:1200px; border:1px solid #ccc;" alt="Graphique Eau Traité statique">
     </div>
 </div>
 
@@ -170,33 +180,38 @@ th { background-color: #e0e0e0; }
     <div class="figure">
         <h3>Station ROSETTE</h3>
         <img src="graphique_04166800_ROSETTE.png" alt="Graphique ROSETTE">
+        <img src="graphique_04166800_ROSETTE.png" class="pdf-only" alt="Graphique ROSETTE statique">
         <a href="graphique_04166800_ROSETTE.html" target="_blank">Voir le graphique interactif</a>
     </div>
     <div class="figure">
         <h3>Station ROSAIE</h3>
         <img src="graphique_04166875_ROSAIE.png" alt="Graphique ROSAIE">
+        <img src="graphique_04166875_ROSAIE.png" class="pdf-only" alt="Graphique ROSAIE statique">
         <a href="graphique_04166875_ROSAIE.html" target="_blank">Voir le graphique interactif</a>
     </div>
     <div class="figure">
         <h3>Station AELB BOIS LEARD</h3>
         <img src="graphique_04167000_AELB_BOIS_LEARD.png" alt="Graphique AELB BOIS LEARD">
+        <img src="graphique_04167000_AELB_BOIS_LEARD.png" class="pdf-only" alt="Graphique AELB BOIS LEARD statique">
         <a href="graphique_04167000_AELB_BOIS_LEARD.html" target="_blank">Voir le graphique interactif</a>
     </div>
 </div>
-
 
 <!-- jsPDF + html2canvas pour PDF multi-pages -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 document.getElementById('downloadPDF').addEventListener('click', () => {
+    // Cacher iframes et afficher images PDF
+    document.querySelectorAll('iframe').forEach(f => f.style.display = 'none');
+    document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'block');
+
     html2canvas(document.body, {scale:2, useCORS:true}).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF('p', 'pt', 'a4');
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
-
         const ratio = canvas.width / pdfWidth;
         let heightLeft = canvas.height / ratio;
         let position = 0;
@@ -212,6 +227,10 @@ document.getElementById('downloadPDF').addEventListener('click', () => {
         }
 
         pdf.save("Synthese_Arguenon.pdf");
+
+        // Revenir à affichage interactif
+        document.querySelectorAll('iframe').forEach(f => f.style.display = 'block');
+        document.querySelectorAll('.pdf-only').forEach(img => img.style.display = 'none');
     });
 });
 </script>
