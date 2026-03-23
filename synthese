@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Synthèse mensuelle qualité des eaux - BV Arguenon</title>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+margin:40px;
+background:white;
+}
+
+header{
+position:relative;
+text-align:center;
+margin-bottom:50px;
+}
+
+.logo{
+position:absolute;
+top:0;
+right:0;
+width:150px;
+}
+
+h1{margin:10px 0;}
+
+.section{
+margin-bottom:60px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2{margin-bottom:20px;}
+
+img{
+max-width:100%;
+height:auto;
+border:1px solid #ccc;
+}
+
+iframe{
+width:100%;
+height:600px;
+border:1px solid #ccc;
+}
+
+/* affichage */
+
+.pdf-only{display:none;}
+.web-only{display:block;}
+
+/* bouton */
+
+#downloadPDF{
+padding:12px 25px;
+background:#0073e6;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+font-size:16px;
+}
+
+.flex{
+display:flex;
+gap:20px;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.flex div{
+flex:1;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Synthèse mensuelle qualité des eaux - BV Arguenon</h1>
+<p>23 mars 2026</p>
+
+<img src="https://galyelise.github.io/synthese_2026/logo%20smap.png" class="logo">
+
+</header>
+
+<div style="text-align:center;margin-bottom:40px;">
+
+<button id="downloadPDF">
+Télécharger la synthèse en PDF
+</button>
+
+</div>
+
+
+<!-- SECTION CARTE -->
+
+<div class="section">
+
+<h2>Stations de mesures sur le bassin versant de l'Arguenon</h2>
+
+<img src="https://galyelise.github.io/synthese_2026/Carte_du_reseau_2026.png">
+
+</div>
+
+
+
+<!-- SECTION NITRATES -->
+
+<div class="section">
+
+<h2>Evolution nitrates BV Arguenon 2026</h2>
+
+<!-- version web -->
+<div class="web-only">
+<iframe src="https://galyelise.github.io/synthese_2026/Nitrates_Stations_2026.html"></iframe>
+</div>
+
+<!-- version pdf -->
+<div class="pdf-only">
+<img src="https://galyelise.github.io/synthese_2026/Nitrates_Stations_2026.png">
+</div>
+
+</div>
+
+
+
+<!-- SECTION PHOSPHORE -->
+
+<div class="section">
+
+<h2>Evolution phosphore BV Arguenon 2026</h2>
+
+<div class="web-only">
+<iframe src="https://galyelise.github.io/synthese_2026/Phosphore_Stations_2026.html"></iframe>
+</div>
+
+<div class="pdf-only">
+<img src="https://galyelise.github.io/synthese_2026/Phosphore_Stations_2026.png">
+</div>
+
+</div>
+
+
+
+<!-- LIBRAIRIES -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+<script>
+
+async function generatePDF(){
+
+// afficher images PDF
+
+document.querySelectorAll(".web-only").forEach(e=>e.style.display="none")
+document.querySelectorAll(".pdf-only").forEach(e=>e.style.display="block")
+
+const {jsPDF}=window.jspdf
+
+const pdf=new jsPDF("p","mm","a4")
+
+const sections=document.querySelectorAll(".section")
+
+let firstPage=true
+
+for(const section of sections){
+
+const canvas=await html2canvas(section,{
+scale:2,
+useCORS:true
+})
+
+const imgData=canvas.toDataURL("image/png")
+
+const pdfWidth=210
+const pdfHeight=canvas.height*pdfWidth/canvas.width
+
+if(!firstPage){
+pdf.addPage()
+}
+
+pdf.addImage(imgData,"PNG",0,0,pdfWidth,pdfHeight)
+
+firstPage=false
+
+}
+
+pdf.save("Synthese_Arguenon.pdf")
+
+// retour affichage web
+
+document.querySelectorAll(".web-only").forEach(e=>e.style.display="block")
+document.querySelectorAll(".pdf-only").forEach(e=>e.style.display="none")
+
+}
+
+document.getElementById("downloadPDF").addEventListener("click",generatePDF)
+
+</script>
+
+</body>
+</html>
